@@ -1,0 +1,8 @@
+{
+  "name": "Organize Your Time",
+  "description": "A sophisticated productivity app that uses AI to verify task completion and manage your schedule with an elegant touch.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}

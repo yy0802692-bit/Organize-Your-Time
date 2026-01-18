@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organize Your Time - Elegant Task AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Dancing+Script:wght@600;700&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-dark: radial-gradient(at 0% 0%, hsla(240, 15%, 9%, 1) 0, transparent 50%), 
+                   radial-gradient(at 100% 0%, hsla(260, 20%, 15%, 1) 0, transparent 50%);
+        --bg-light: radial-gradient(at 0% 0%, hsla(220, 30%, 98%, 1) 0, transparent 50%), 
+                    radial-gradient(at 100% 100%, hsla(160, 20%, 96%, 1) 0, transparent 50%);
+      }
+      
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s ease;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .font-handwriting {
+        font-family: 'Dancing Script', cursive;
+      }
+
+      [dir="rtl"] .font-handwriting {
+        font-family: 'Reem Kufi', sans-serif;
+      }
+
+      body.dark-mode {
+        background-color: #0f1115;
+        color: #e2e8f0;
+      }
+
+      body.light-mode {
+        background-color: #fcfcfd;
+        color: #1e293b;
+      }
+
+      .mesh-gradient {
+        position: fixed;
+        inset: 0;
+        z-index: -10;
+        transition: opacity 1s ease;
+      }
+
+      .dark-mode .mesh-gradient {
+        background-image: var(--bg-dark);
+        opacity: 0.6;
+      }
+
+      .light-mode .mesh-gradient {
+        background-image: var(--bg-light);
+        opacity: 1;
+      }
+
+      .glass {
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, box-shadow 0.3s ease;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .dark-mode .glass {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .light-mode .glass {
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+      }
+
+      .glass-dark {
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+
+      .dark-mode .glass-dark {
+        background: rgba(10, 12, 16, 0.85);
+      }
+
+      .light-mode .glass-dark {
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .timer-font {
+        font-family: 'JetBrains Mono', monospace;
+        font-variant-numeric: tabular-nums;
+      }
+
+      @keyframes soft-pulse {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.1); }
+      }
+
+      .active-pulse {
+        animation: soft-pulse 2s infinite ease-in-out;
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, 0.2);
+        border-radius: 10px;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "@google/genai": "https://esm.sh/@google/genai@^1.35.0",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+      }
+    }
+    </script>
+  </head>
+  <body class="dark-mode">
+    <div class="mesh-gradient"></div>
+    <div id="root"></div>
+  </body>
+</html>
